@@ -1,0 +1,192 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url(./assets/Wrinkled-White-Paper-Texture-for-Poster-Background-1859966483.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: Montserrat;
+    margin: 0px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+h1 {
+    color: white;
+    margin: 8px;
+    font-weight: 800;
+    font-size: 40px;
+    font-family: "EB Garamond";
+}
+
+.logo {
+    height: 80%;
+    margin: 8px;
+}
+
+.black {
+    color: black;
+}
+
+.center {
+    margin: 40px;
+    text-align: center;
+}
+
+.intro {
+    margin-top: 300px;
+    max-width: 700px;
+}
+
+.intro-text {
+    color: black;
+    font-weight: 600;
+    font-size: 30px;
+    animation: slide 1s 0.5s both;
+}
+
+.goto-downloads {
+    border-radius: 30px;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.3s;
+    animation: slide 1s 1s both;
+}
+
+.goto-downloads:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .slide {
+        animation: slide 1s 0.3s both 1;
+    }
+    .progress-anim {
+        animation: progress 2s 1s both 1;
+    }
+}
+
+@keyframes slide {
+    0% {
+        opacity: 0;
+        transform: translate(-40px, 0px) scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.description {
+    margin-top: 300px;
+}
+
+.section-header {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.description-text {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.downloads-header {
+    font-size: 20px;
+}
+
+.progress-bar {
+    margin: 10px;
+    border: solid black 1px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.progress-fill {
+    text-align: right;
+    border-radius: 20px;
+    padding: 10px;
+    visibility: hidden;
+    color: white;
+    background-color: black;
+}
+
+@keyframes progress {
+    0% {
+        visibility: visible;
+        width: 5%;
+    }
+    100% {
+        visibility: visible;
+        width: 15%;
+    }
+}
+
+section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 300px;
+    max-width: 700px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.coin-adress {
+    color: white;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.downloads {
+    margin-bottom: 300px;
+}
+
+.browser-icon {
+    height: 40px;
+    width: 40px;
+}
+
+.download-buttons {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+}
+
+.download-button {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.37);
+    padding: 10px;
+    height: 60px;
+    border-radius: 30px;
+    display: flex;
+    max-width: 400px;
+    font-size: 30px;
+    border: none;
+}
+
+svg {
+    margin-right: 10px;
+}
