@@ -51,7 +51,7 @@ h1 {
 }
 
 .intro {
-    margin-top: 300px;
+    margin-top: 20%;
     max-width: 700px;
 }
 
@@ -100,7 +100,7 @@ h1 {
 }
 
 .description {
-    margin-top: 300px;
+    margin-top: 10%;
 }
 
 .section-header {
@@ -140,7 +140,7 @@ h1 {
     }
     100% {
         visibility: visible;
-        width: 15%;
+        width: 25%;
     }
 }
 
@@ -148,7 +148,7 @@ section {
     background-color: white;
     border-radius: 10px;
     padding: 20px;
-    margin-top: 300px;
+    margin-top: 20%;
     max-width: 700px;
     margin-left: 40px;
     margin-right: 40px;
