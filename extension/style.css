@@ -1,0 +1,71 @@
+body {
+    background-image: url(./assets/Wrinkled-White-Paper-Texture-for-Poster-Background-1859966483.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: Montserrat;
+    margin: 0px;
+    height: 200px;
+    width: 300px;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.header-text {
+    color: white;
+    font-family: "EB Garamond";
+    margin: 8px;
+    font-weight: 800;
+    font-size: 40px;
+}
+
+.logo {
+    height: 80%;
+    margin: 8px;
+}
+
+.settings-input {
+    font-size: 20px;
+    height: 30px;
+    max-width: 100px;
+    border-radius: 15px;
+    border: solid black 1px;
+}
+
+main {
+    margin-top: 100px;
+}
+
+.option {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.option > p {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 10px;
+}

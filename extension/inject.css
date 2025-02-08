@@ -1,0 +1,84 @@
+.paper-gui {
+    margin: 8px auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.balance-display {
+    font-size: 40px;
+    margin: 0px;
+}
+
+.buy-gui {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buy-amount {
+    color: white;
+    background-color: #181921;
+    border: solid 1px #303038;
+    border-radius: 16px;
+    height: 32px;
+    width: 100%;
+}
+
+.buy-amount:hover {
+    filter: brightness(150%);
+}
+
+.buy-button {
+    color: white;
+    background-color: #6a60e8;
+    border: none;
+    height: 32px;
+    padding: 0px 20px;
+    margin: 0px 8px;
+    border-radius: 16px;
+}
+
+.buy-button:hover {
+    filter: brightness(120%);
+}
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting>p {
+    margin: 0px;
+}
+
+.setting-options {
+    display: flex;
+    justify-content: space-around;
+    width: 25%;
+}
+
+.setting-options>button>svg {
+    width: 16px;
+}
+
+.setting-options>button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: #6a60e8;
+    border-radius: 50%;
+    padding: 0px;
+    padding: 8px;
+}

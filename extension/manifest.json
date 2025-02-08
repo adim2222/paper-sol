@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "paper.sol",
+  "version": "1.0.0",
+  "description": "A solana coin trading practice tool.",
+  "action": {
+    "default_icon": "assets/paper-sol-icon-white.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://photon-sol.tinyastro.io/en/lp/*"],
+      "js": ["index.js"],
+      "css" : ["inject.css"]
+    }
+  ]
+}
