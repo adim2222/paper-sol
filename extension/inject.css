@@ -25,6 +25,7 @@
     background-color: #181921;
     border: solid 1px #303038;
     border-radius: 16px;
+    padding-left: 8px;
     height: 32px;
     width: 100%;
 }
@@ -39,8 +40,9 @@
     border: none;
     height: 32px;
     padding: 0px 20px;
-    margin: 0px 8px;
+    margin-left: 8px;
     border-radius: 16px;
+    justify-self: flex-end;
 }
 
 .buy-button:hover {
@@ -81,4 +83,23 @@
     border-radius: 50%;
     padding: 0px;
     padding: 8px;
+}
+
+.quick-buy-select-gui {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.buy-select {
+    width: 20%;
+    height: 32px;
+    border-radius: 16px;
+    background-color: #6a60e8;
+    border: none;
+    color: white;
+}
+
+.buy-select:hover {
+    filter: brightness(120%);
 }

@@ -4,12 +4,14 @@ const paperGui = document.createElement("div");
 let settings = localStorage.getItem("psol-settings") || {
     guiPosition: 4,
     balance: 1,
+    buyAmounts: [0.2, 0.3, 0.4, 0.5],
+    sellAmounts: [0.2, 0.5, 0.75, 1]
 };
 
 const updateSetting = (setting, value) => {
     settings[setting] = value;
     console.log(settings[setting]);
-    localStorage.setItem("psol-settings", settings);
+    localStorage.setItem("psol-settings", JSON.stringify(settings));
 };
 
 const getCurrentMcap = () => {
@@ -33,30 +35,40 @@ const insertGUI = () => {
                 <img src="https://i.imgur.com/MbMiItC.png" width="20%">
                 <p class="balance-display"></p>
             </div>
+            <div class="quick-buy-select-gui">
+                <button class="buy-select"></button>
+                <button class="buy-select"></button>
+                <button class="buy-select"></button>
+                <button class="buy-select"></button>
+            </div>
             <div class="buy-gui">
-                <input class="buy-amount" placeholder=" Amount to buy" type="text" pattern="[0-9]">
+                <input class="buy-amount" placeholder="Amount to buy" type="text" pattern="[0-9]">
                 <button class="buy-button">Buy</button>
             </div>
             <div class="settings">
                 <button class="toggle-settings"></button>
                 <div class="settings-list">
                     <div class="setting">
-                        <p>Interface position:</p>
+                        <p>Label:</p>
                         <div class="setting-options">
-                            <button class="move-gui-up">
-                                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 9H10V16H6V9L3 9V8L8 3L13 8V9Z" fill="#FFFFFF"/><path d="M14 2H2V0H14V2Z" fill="#FFFFFF"/></svg>
-                            </button>
-                            <button class="move-gui-down">
-                                <svg transform="rotate(180)" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 9H10V16H6V9L3 9V8L8 3L13 8V9Z" fill="#FFFFFF"/><path d="M14 2H2V0H14V2Z" fill="#FFFFFF"/></svg>
-                            </button>
+                            xddd
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     `;
-
     sidebar.insertBefore(paperGui, sidebar.childNodes[settings.guiPosition]);
+
+    const buyAmount = document.querySelector(".buy-amount");
+    const buySelectList = document.querySelectorAll(".buy-select");
+    console.log(buySelectList);
+    for (let i = 0; i < buySelectList.length; i++) {
+        buySelectList[i].innerHTML = settings.buyAmounts[i];
+        buySelectList[i].addEventListener("click", () => {
+            buyAmount.value = parseFloat(buySelectList[i].innerHTML);
+        });
+    }
 
     const toggleSettings = document.querySelector(".toggle-settings");
     const settingsList = document.querySelector(".settings-list");
@@ -68,18 +80,6 @@ const insertGUI = () => {
             settingsList.style.display = "none";
         }
     });
-
-    const guiPosUpButton = document.querySelector(".move-gui-up");
-    const guiPosDownButton = document.querySelector(".move-gui-down");
-    guiPosUpButton.addEventListener("click", () => {
-        updateSetting("guiPosition", settings.guiPosition - 2);
-        insertGUI();
-    });
-    guiPosDownButton.addEventListener("click", () => {
-        updateSetting("guiPosition", settings.guiPosition + 2);
-        insertGUI();
-    });
-
 
     const balanceDisplay = document.querySelector(".balance-display");
     balanceDisplay.innerHTML = settings.balance;
