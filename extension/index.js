@@ -45,6 +45,7 @@ const insertGUI = () => {
                 <input class="buy-amount" placeholder="Amount to buy" type="text" pattern="[0-9]">
                 <button class="buy-button">Buy</button>
             </div>
+            <button class="sell-switch">Switch to sell</button>
             <div class="settings">
                 <button class="toggle-settings"></button>
                 <div class="settings-list">
@@ -62,13 +63,14 @@ const insertGUI = () => {
 
     const buyAmount = document.querySelector(".buy-amount");
     const buySelectList = document.querySelectorAll(".buy-select");
-    console.log(buySelectList);
     for (let i = 0; i < buySelectList.length; i++) {
         buySelectList[i].innerHTML = settings.buyAmounts[i];
         buySelectList[i].addEventListener("click", () => {
             buyAmount.value = parseFloat(buySelectList[i].innerHTML);
         });
-    }
+    };
+
+
 
     const toggleSettings = document.querySelector(".toggle-settings");
     const settingsList = document.querySelector(".settings-list");
