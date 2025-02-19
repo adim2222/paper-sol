@@ -20,8 +20,12 @@ const getCurrentMcap = () => {
     return mcap;
 }
 
-const buy = (buyAmount) => {
+const buyPoints = [];
 
+const buy = (buyAmount) => {
+    settings.balance -= buyAmount;
+    balanceDisplay.innerHTML = settings.balance;
+    buyPoints.push(buyAmount / getCurrentMcap());
 };
 
 const sell = (sellAmount) => {
@@ -35,15 +39,29 @@ const insertGUI = () => {
                 <img src="https://i.imgur.com/MbMiItC.png" width="20%">
                 <p class="balance-display"></p>
             </div>
-            <div class="quick-buy-select-gui">
-                <button class="buy-select"></button>
-                <button class="buy-select"></button>
-                <button class="buy-select"></button>
-                <button class="buy-select"></button>
+            <div class="buy-selector">
+                <div class="quick-buy-select-gui">
+                    <button class="buy-select"></button>
+                    <button class="buy-select"></button>
+                    <button class="buy-select"></button>
+                    <button class="buy-select"></button>
+                </div>
+                <div class="buy-gui">
+                    <input class="buy-amount" placeholder="Amount to buy" type="text" pattern="[0-9]">
+                    <button class="buy-button">Buy</button>
+                </div>
             </div>
-            <div class="buy-gui">
-                <input class="buy-amount" placeholder="Amount to buy" type="text" pattern="[0-9]">
-                <button class="buy-button">Buy</button>
+            <div class="sell-selector">
+                <div class="quick-sell-select-gui">
+                    <button class="sell-select"></button>
+                    <button class="sell-select"></button>
+                    <button class="sell-select"></button>
+                    <button class="sell-select"></button>
+                </div>
+                <div class="sell-gui">
+                    <input class="buy-amount" placeholder="Precentage to sell" type="text" pattern="[0-9]">
+                    <button class="buy-button">Buy</button>
+                </div>
             </div>
             <button class="sell-switch">Switch to sell</button>
             <div class="settings">
@@ -70,7 +88,23 @@ const insertGUI = () => {
         });
     };
 
+    const buyButton = document.querySelector(".buy-button");
+    buyButton.addEventListener("click", () => {
+        buy(buyAmount.value);
+    });
 
+    let selling = false;
+    const sellSwitch = document.querySelector(".sell-switch");
+    sellSwitch.addEventListener("click" , () => {
+        if (!selling) {
+            document.querySelector(".buy-selector").style.display = "none";
+            document.querySelector(".sell-selector").style.display = "block";
+        } else {
+            document.querySelector(".buy-selector").style.display = "block";
+            document.querySelector(".sell-selector").style.display = "none";
+        }
+        selling = !selling;
+    });
 
     const toggleSettings = document.querySelector(".toggle-settings");
     const settingsList = document.querySelector(".settings-list");
