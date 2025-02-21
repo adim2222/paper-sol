@@ -20,16 +20,22 @@ const getCurrentMcap = () => {
     return mcap;
 }
 
-const buyPoints = [];
+let buyPoints = [];
 
-const buy = (buyAmount) => {
+const buy = (buyAmount, balanceDisplay) => {
     settings.balance -= buyAmount;
-    balanceDisplay.innerHTML = settings.balance;
+    balanceDisplay.innerHTML = settings.balance.toFixed(5);
     buyPoints.push(buyAmount / getCurrentMcap());
 };
 
-const sell = (sellAmount) => {
-
+const sell = (sellAmount, balanceDisplay) => {
+    const averageBuy = (array) => array.reduce((a, b) => a + b) / array.length;
+    const a = averageBuy(buyPoints) * sellAmount;
+    settings.balance += a * getCurrentMcap();
+    balanceDisplay.innerHTML = settings.balance.toFixed(5);
+    const x = averageBuy(buyPoints) - a;
+    buyPoints = [];
+    buyPoints.push(x);
 };
 
 const insertGUI = () => {
@@ -88,11 +94,7 @@ const insertGUI = () => {
         });
     };
 
-    const buyButton = document.querySelector(".buy-button");
-    buyButton.addEventListener("click", () => {
-        buy(buyAmount.value);
-    });
-
+ 
     const sellAmount = document.querySelector(".sell-amount");
     const sellSelectList = document.querySelectorAll(".sell-select");
     for (let i = 0; i < sellSelectList.length; i++) {
@@ -130,6 +132,17 @@ const insertGUI = () => {
 
     const balanceDisplay = document.querySelector(".balance-display");
     balanceDisplay.innerHTML = settings.balance;
+
+    const buyButton = document.querySelector(".buy-button");
+    buyButton.addEventListener("click", () => {
+        buy(buyAmount.value, balanceDisplay);
+    });
+
+    const sellButton = document.querySelector(".sell-button");
+    sellButton.addEventListener("click", () => {
+        sell(sellAmount.value, balanceDisplay);
+    });
+
     console.log("gui inserted");
 };
 
