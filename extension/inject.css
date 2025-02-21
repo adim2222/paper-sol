@@ -93,7 +93,7 @@
     margin-bottom: 16px;
 }
 
-.buy-select {
+.value-selector {
     width: 20%;
     height: 32px;
     border-radius: 16px;
@@ -103,7 +103,7 @@
     transition: 0.3s;
 }
 
-.buy-select:hover {
+.value-selector:hover {
     filter: brightness(120%);
 }
 
@@ -120,4 +120,43 @@
 
 .sell-switch:hover {
     filter: brightness(120%);
+}
+
+.sell-amount {
+    color: white;
+    background-color: #181921;
+    border: solid 1px #303038;
+    border-radius: 16px;
+    padding-left: 8px;
+    height: 32px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.sell-button {
+    color: white;
+    background-color: #6a60e8;
+    border: none;
+    height: 32px;
+    padding: 0px 20px;
+    margin-left: 16px;
+    border-radius: 16px;
+    justify-self: flex-end;
+    transition: 0.3s;
+}
+
+.quick-sell-select-gui {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.sell-gui {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sell-selector {
+    display: none;
 }
